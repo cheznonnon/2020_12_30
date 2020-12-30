@@ -1,0 +1,277 @@
+
+
+----------==========----------==========----------==========----------
+
+
+"Eat Your Own Catfood."
+
+
+----------==========----------==========----------==========----------
+
+
+Change Log
+
+
+2020/12/30
+
+
+BUGFIX
+
+
+	neutral/bmp/table/gamma.c
+		logic
+			OLD : not faster
+			NEW : fixed
+			[!] : maximum 40% faster
+
+	win32/win_calendar.c
+		input
+			OLD : not working
+			NEW : fixed
+	win32/win_smallbutton.c
+		when non-client area is clicked
+			OLD : fade will stop
+			NEW : pathced
+			[x] : Windows' bug
+
+	All
+		system tray icon : usage
+			OLD : inaccurate
+			NEW : fixed
+	Calendar
+		input
+			OLD : not working
+			NEW : fixed
+	CAR-RACE 2
+		source code : n_cr2_crash_effect()
+			OLD : a space character is missing
+			NEW : fixed
+	Marie
+		Jukebox : system tray icon
+			OLD : disappear
+			NEW : fixed
+			[x] : BUGFIX @ 2020/04/20
+		Jukebox : when Marie is closed
+			OLD : memory leak
+			NEW : fixed
+	nmidi
+		source code : _channel.c : comment
+			OLD : typo
+			NEW : fixed
+	Nonnon Paint
+		when system theme is changed
+			OLD : window size will be inaccurate
+			NEW : fixed
+
+
+NEW_FEATURE
+
+
+	neutral/random.c
+		renamed
+			OLD : n_random_range_hiquality
+			NEW : n_random_range_high_quality
+			[!] : macro n_random_range_hq is made
+
+	project/macro.c
+		n_project_settingchange_interval()
+			OLD : hard-coded 500 msec. or 1000 msec.
+			NEW : integrated logic
+
+	All
+		Win8 or later : TxtBox : stripe
+			NEW : window color available
+	Calendar
+		released
+			NEW : separated from NonnonApps
+	Neko no Te
+		source code
+			NEW : a little re-factored
+	nmixer
+		mutex
+			OLD : single
+			NEW : flexible
+	Nonnon Wheel Axl
+		logic
+			NEW : re-tuned
+	Nonnon Game
+		source code
+			OLD : "FLAG"
+			NEW : "MOVE"
+			[!] : for easier to read
+	OrangeCat
+		Win8 or later
+			NEW : window color available
+
+
+----------==========----------==========----------==========----------
+
+
+Change Log
+
+
+2020/12/20
+
+
+BUGFIX
+
+
+	neutral/bmp/table/blend.c
+		use
+			NEW : not used
+			[?] : not faster
+	neutral/bmp/table/gamma.c
+		use
+			NEW : not used
+			[?] : not faster
+
+	win32/gdi/color.c
+		n_gdi_systemcolor_ui()
+			OLD : always COLOR_BTNFACE
+			NEW : fixed
+
+	Nekomimi Nina
+		key input : left and right at the same time
+			OLD : misbehave
+			NEW : fixed
+			[x] : many years ago
+	Nonnon Paint
+		Multi-Layer : Save : the first save
+			OLD : data will be lost
+			NEW : fixed
+			[!] : close and open again
+			[!] : backported as Nov 30 #2
+			[x] : ??? @ 2020/11/30
+		Resizer
+			OLD : debug code is enabled
+			NEW : fixed
+			[!] : backported as Nov 30 #3
+		Multi-Layer : Save : when saved
+			OLD : position is reset to initial position
+			NEW : fixed
+			[!] : backported as Nov 30 #3
+		Multi-Layer : Resizer : Rotate
+			OLD : crash
+			NEW : fixed
+			[x] : source code : n_paint_layer_canvas_grabber_pixel()
+			[!] : backported as Nov 30 #4
+	Nonnon Wheel Axl
+		Win10 patch
+			NEW : removed
+			[?] : not working accurately
+			[!] : Win10 is not supported again
+
+
+NEW_FEATURE
+
+
+	project/macro.c
+		N_PROJECT_SYSTRAY_ID_*
+			NEW : fixed IDs for win32/win_systray.c
+			[!] : NonnonApps-like collection needs this
+
+	win32/win_systray.c
+		n_win_systray_icon_load_callback
+			NEW : callback for color replacement
+		n_win_systray_id_auto()
+			NEW : removed
+			[?] : ID is improtant in order on the tray
+
+	Nonnon Wheel Axl
+		systray icon : DWM is ON
+			NEW : theme color available
+		jitter prevention
+			NEW : re-tuned
+		24px icon
+			NEW : re-tuned
+		engine
+			OLD : fixed value
+			NEW : time and sqrt()
+			[!] : smoother than older
+
+
+----------==========----------==========----------==========----------
+
+
+Change Log
+
+
+2020/12/10
+
+
+BUGFIX
+
+
+	Project
+		ProjectNonnon.txt : VC++ instruction
+			OLD : "Linker" "System" "Subsystem" is missing
+			NEW : fixed
+
+	win32/win_txtbox/07_metrics
+		n_win_txtbox_metrics() : when system theme is changed
+			OLD : scrollbars are not refreshed
+			NEW : fixed
+	win32/mixer.c
+		IAudioEndpointVolumeCallback : implementation
+			OLD : inaccurate
+			NEW : fixed
+
+	All
+		notification area icons : ID
+			OLD : 0 and 1 are only used
+			NEW : n_win_systray_id_auto() gives an auto-incremented id
+			[!] : two group are made
+		MinGW Version : ANSI/Unicode
+			OLD : jpeg library DLL is required
+			NEW : fixed
+	nmixer
+		Win10 : Sticky Mode : Dark Mode
+			OLD : not refreshed
+			NEW : fixed
+
+
+NEW_FEATURE
+
+
+	Project
+		x86 main compiler
+			OLD : MinGW GCC 4.x
+			NEW : MinGW GCC 3.x
+			[!] : for Nonnon Test Labs
+			[?] : GitHub's upload limit is 25MB
+
+	all
+		integer overflow preventer
+			NEW : removed
+			[?] : for GCC 3.x
+			[!] : may re-implement later
+
+	neutral/bmp/table/*.c
+		logic
+			NEW : label jump available
+			[!] : faster than older
+
+	project/macro.c
+		N_WIN_GUI_INPUT
+			OLD : INPUT
+			NEW : N_INPUT
+			[!] : usage is changed
+			[?] : conflict with Win32 INPUT structure
+
+	win32/color.c
+		n_gdi_systemcolor_ui()
+			NEW : system color UI getter
+
+	nmixer
+		system tray icon #1
+			NEW : colorful icon available
+		system tray icon #2
+			NEW : sync with system volume available
+	Nonnon Wheel Axl
+		released
+			NEW : mouse wheel accelerator
+			[x] : currently Win9x are not supported
+
+
+----------==========----------==========----------==========----------
+
