@@ -12,6 +12,34 @@
 Change Log
 
 
+2020/12/30 #3 : 2021/01/03
+
+
+BUGFIX
+
+
+	Wheel Axl
+		engine : "time_stp"
+			OLD : unused
+			NEW : set current time
+
+
+NEW_FEATURE
+
+
+	Wheel Axl
+		engine
+			OLD : sqrt()
+			NEW : pow()
+			[!] : smoother than older
+
+
+----------==========----------==========----------==========----------
+
+
+Change Log
+
+
 2020/12/30 #2 : 2021/01/01
 
 
